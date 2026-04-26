@@ -185,6 +185,125 @@ body {
     height:1px;
     margin:0 0 20px;
   }
+
+  .news-container {
+    margin: 20px 0;
+  }
+
+  .news-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 5px;
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  .news-year-btn {
+    color: rgb(0, 0, 0);
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+
+
+  .news-year-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+
+  .news-year-display {
+    font-size: 18px;
+    font-weight: bold;
+    color: #222;
+    min-width: 60px;
+    text-align: center;
+  }
+
+  .news-scroll {
+    height: 400px;
+    overflow-y: auto;
+    border-radius: 5px;
+    padding: 15px;
+  }
+
+  .news-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .news-item {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e5e5e5;
+  }
+
+  .news-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .news-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .news-date {
+    color: #595959;
+    font-size: 13px;
+  }
+
+  .news-label {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: capitalize;
+  }
+
+  .news-label-good {
+    background-color: #90EE90;
+    color: #1a5c1a;
+  }
+
+  .news-label-bad {
+    background-color: #FFB6C1;
+    color: #8B0000;
+  }
+
+  .news-label-travel {
+    background-color: #FFD700;
+    color: #8B6914;
+  }
+
+  .news-label-other {
+    background-color: #DDA0DD;
+    color: #4B0082;
+  }
+
+  .news-title {
+    margin: 8px 0 6px 0;
+    color: #222;
+    font-size: 16px;
+  }
+
+  .news-description {
+    margin: 0;
+    color: #595959;
+    font-size: 14px;
+    line-height: 1.5;
+  }
   
   footer {
     width:270px;

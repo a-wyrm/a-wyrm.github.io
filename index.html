@@ -25,7 +25,7 @@
 
     <div class="col-lg-3">        
         <header style="margin-right: 80px;">
-            <p>CS PhD Student at GWU<br>Pronouns: Any (she/her is fine)</p>
+            <p>CS PhD Student at GWU <br/> Pronouns: <a href="https://en.wikipedia.org/wiki/Agender" target="_blank" class="link-success link-underline-opacity-0">Any (she/her is fine)</a></p>
             <p><b>Email</b>: adryana.hutchinson AT gwu DOT edu</p>
             <h5><p><a href="index.html" class="link-success link-underline-opacity-0">Home</a></p></h5>
             <h5><p><a href="publications.html" class="link-success link-underline-opacity-0">Publications</a></p></h5>
@@ -44,16 +44,6 @@
             I recieved my undergraduate degree from Clark University, where I majored in Computer Science and Philosophy. During my undergrad, I conducted research with <a href="https://peterstory.me/" class="link-success link-underline-opacity-0" target="_blank">Peter Story</a>
 			      on the usability of password managers.
         </p>
-        <hr/>
-
-        <h2>Recent News</h2>
-        <div>
-          <ul>
-            <li><b>Feburary 2026</b>: Very excited to announce that our paper, Re-Examining the Examiners: Changes in Privacy and Security Perceptions of Exam Proctoring, has been accepted into CHI '26. Excited to see folks in Barcelona.</li>
-            <li><b>December 2025</b>: Presented some upcoming work at CACTUS!</li>
-            <li><b>July 2025</b>: Volunteered at PETs in DC.</li>
-          <ul>
-        </div>
         <hr/>
 
         <h2>Select Publications</h2>
@@ -75,8 +65,96 @@
         <br>
         CHI EA 2024 <a href="https://dl.acm.org/doi/10.1145/3613905.3650741" target="_blank">[URL]</a> <a href="/pdfs/chiea24-273.pdf" target="_blank">[PDF]</a> <a href="https://www.youtube.com/watch?v=afJ59Svo7Xk" target="_blank">[Video]</a>
         </p>
-      </section>
+      
+        <hr/>
+        <h2>Recent News</h2>
+          <div class="news-container">
+            <div class="news-controls">
+              <button class="news-year-btn" id="prevYearBtn">← Previous</button>
+              <span class="news-year-display" id="yearDisplay">2026</span>
+              <button class="news-year-btn" id="nextYearBtn">Next →</button>
+            </div>
+            <div class="news-scroll" id="newsScroll">
+              <ul id="newsList" class="news-list">
+              </ul>
+            </div>
+          </div>
+        </section>
     </div>
     <script src="javascripts/scale.fix.js"></script>
+
+    <script>
+      let allNews = [];
+      let currentYear = 2026;
+
+      async function loadNews() {
+        try {
+          const response = await fetch('news.json');
+          const data = await response.json();
+          allNews = data.news.sort((a, b) => b.year - a.year);
+          currentYear = allNews[0].year;
+          displayNews();
+          updateYearButtons();
+        } catch (error) {
+          console.error('Error loading news:', error);
+          document.getElementById('newsList').innerHTML = '<li>Error loading news data.</li>';
+        }
+      }
+
+      function displayNews() {
+        const newsItem = allNews.find(n => n.year === currentYear);
+        const newsList = document.getElementById('newsList');
+        
+        if (!newsItem || newsItem.items.length === 0) {
+          newsList.innerHTML = '<li>No news for this year.</li>';
+          return;
+        }
+
+        newsList.innerHTML = newsItem.items
+          .map(item => `
+            <li>
+              <div class="news-item">
+                <div class="news-header">
+                  <span class="news-date"><b>${item.date}</b></span>
+                  <span class="news-label news-label-${item.category}">${item.category}</span>
+                </div>
+                <h4 class="news-title">${item.title}</h4>
+                <p class="news-description">${item.description}</p>
+              </div>
+            </li>
+          `)
+          .join('');
+      }
+
+      function updateYearButtons() {
+        const years = allNews.map(n => n.year).sort((a, b) => b - a);
+        document.getElementById('yearDisplay').textContent = currentYear;
+        document.getElementById('prevYearBtn').disabled = currentYear === Math.min(...years);
+        document.getElementById('nextYearBtn').disabled = currentYear === Math.max(...years);
+      }
+
+      document.getElementById('prevYearBtn').addEventListener('click', () => {
+        const years = allNews.map(n => n.year).sort((a, b) => b - a);
+        const currentIndex = years.indexOf(currentYear);
+        if (currentIndex < years.length - 1) {
+          currentYear = years[currentIndex + 1];
+          displayNews();
+          updateYearButtons();
+        }
+      });
+
+      document.getElementById('nextYearBtn').addEventListener('click', () => {
+        const years = allNews.map(n => n.year).sort((a, b) => b - a);
+        const currentIndex = years.indexOf(currentYear);
+        if (currentIndex > 0) {
+          currentYear = years[currentIndex - 1];
+          displayNews();
+          updateYearButtons();
+        }
+      });
+
+      // Load news on page load
+      loadNews();
+    </script>
   </body>
 </html>

@@ -1,0 +1,45 @@
+{
+  "news": [
+    {
+      "year": 2026,
+      "items": [
+        {
+          "date": "March 2026",
+          "title": "S&P IEEE Rejection",
+          "description": "",
+          "category": "bad news"
+        },
+        {
+          "date": "March 2026",
+          "title": "Amazon Research Award Proposal Rejected",
+          "description": "",
+          "category": "bad news"
+        },
+        {
+          "date": "February 2026",
+          "title": "Paper Accepted at CHI '26",
+          "description": "Very excited to announce that our paper, Re-Examining the Examiners: Changes in Privacy and Security Perceptions of Exam Proctoring, has been accepted into CHI '26. Excited to see folks in Barcelona.",
+          "category": "good news"
+        }
+        
+      ]
+    },
+    {
+      "year": 2025,
+      "items": [
+        {
+          "date": "December 2025",
+          "title": "CACTUS Presentation",
+          "description": "Presented some upcoming work at CACTUS!",
+          "category": "good news"
+        },
+        {
+          "date": "July 2025",
+          "title": "PETs Volunteer",
+          "description": "Volunteered at PETs in DC.",
+          "category": "travel"
+        }
+      ]
+    }
+  ]
+}
