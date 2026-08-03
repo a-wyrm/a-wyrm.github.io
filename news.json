@@ -4,6 +4,12 @@
       "year": 2026,
       "items": [
         {
+          "date": "July 2026",
+          "title": "Attended the NCIL Conference",
+          "description": "I attended the NCIL Conference in Washington, DC.",
+          "category": "good news"
+        },
+        {
           "date": "June 2026",
           "title": "Internship started",
           "description": "I will be interning with the CDT and AAPD this summer working on disability tech policy issues!",
