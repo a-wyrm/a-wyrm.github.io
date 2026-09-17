@@ -4,6 +4,12 @@
       "year": 2026,
       "items": [
         {
+          "date": "September 2026",
+          "title": "2 CCS Papers Accepted!",
+          "description": "My paper, <a href='pdfs/ccs-inaccessible-auth.pdf' target='_blank'>A Mixed-Methods Analysis of Account Creation & Authentication Inaccessibility for Blind and Low Vision Users</a>, and another paper lead by my dear friend <a href='https://junhoeum.com/' target='_blank'>Junho</a>, has been accepted! Seen you in the Netherlands. ",
+          "category": "good news"
+        },
+        {
           "date": "July 2026",
           "title": "Attended the NCIL Conference",
           "description": "I attended the NCIL Conference in Washington, DC.",
